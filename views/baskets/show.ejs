@@ -1,47 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="/stylesheets/show.css" />
-
-    <title><%= application.title %></title>
-
+    <title><%= basket.basketName %></title>
   </head>
 
   <body>
   <%- include('../partials/_navbar.ejs') %>
   <div class="show-body">
     <div class="show-header">
-      <h1><%= application.title %> at <%= application.company %></h1>
+      <h1><%= basket.basketName %></h1>
       <div class="show-sidebar">
         <div class="show-actions">
-          <a
-            href="/users/<%= user._id %>/applications/<%= application._id %>/edit"
-          >
-            Edit App
+          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit">
+            Edit Basket
           </a>
           <form
-            action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
+            action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE"
             method="POST"
           >
-            <button type="submit">Delete App</button>
+            <button type="submit">Delete Basket</button>
           </form>
         </div>
-        <p>Current Status: <%= application.status %></p>
+        <p><strong>Status:</strong> <%= basket.status %></p>
       </div>
     </div>
+    
     <div class="show-notes-container">
-      <% if (application.postingLink) { %>
-      <a href="<%= application.postingLink %>" target="_blank"
-        >View job posting</a
-      >
-      <% } %> <% if (application.notes) { %>
+      <div class="basket-details">
+        <p><strong>Recipient:</strong> <%= basket.recipient %></p>
+        <p><strong>Occasion:</strong> <%= basket.occasion %></p>
+        
+        <% if (basket.theme) { %>
+        <p><strong>Theme:</strong> <%= basket.theme %></p>
+        <% } %>
+        
+        <p><strong>Date Needed:</strong> <%= new Date(basket.dateNeeded).toLocaleDateString() %></p>
+        
+        <% if (basket.budget) { %>
+        <p><strong>Budget:</strong> <%= basket.budget %></p>
+        <% } %>
+      </div>
+
+      <% if (basket.items) { %>
+      <div class="show-notes">
+        <h2>Items / Shopping List:</h2>
+        <p><%= basket.items %></p>
+      </div>
+      <% } %>
+      
+      <% if (basket.notes) { %>
       <div class="show-notes">
         <h2>Notes:</h2>
-        <p><%= application.notes %></p>
+        <p><%= basket.notes %></p>
+      </div>
+      <% } %>
+      
+      <% if (basket.photo) { %>
+      <div class="basket-photo">
+        <h2>Photo:</h2>
+        <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" />
       </div>
       <% } %>
     </div>
