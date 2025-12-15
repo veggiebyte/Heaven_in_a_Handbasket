@@ -1,23 +1,40 @@
 const mongoose = require('mongoose');
 
-const applicationSchema = new mongoose.Schema({
-  company: {
+const basketSchema = new mongoose.Schema({
+  basketName: {
     type: String,
     required: true,
   },
-  title: {
+  recipient: {
     type: String,
     required: true,
+  },
+  occasion: {
+    type: String,
+    required: true,
+  },
+  theme: {
+    type: String,
+  },
+  dateNeeded: {
+    type: Date,
+    required: true,
+  },
+  items: {
+    type: String,
+  },
+  budget: {
+    type: String,
   },
   notes: {
     type: String,
   },
-  postingLink: {
-    type: String,
-  },
   status: {
     type: String,
-    enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
+    default: "Planning",
+  },
+  photo: {
+    type: String,
   },
 });
 
@@ -30,8 +47,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
-  applications: [applicationSchema], 
+  baskets: [basketSchema],
 });
 
 const User = mongoose.model('User', userSchema);
