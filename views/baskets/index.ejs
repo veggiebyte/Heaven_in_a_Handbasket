@@ -4,21 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Your Apps</title>
+    <title>Your Gift Baskets</title>
   </head>
   <body>
   <%- include('../partials/_navbar.ejs') %>
   <div class="all-apps-body">
   <div class="all-apps-header">
-    <h1>Your Apps</h1>
-    <a class="add-app-link" href="/users/<%=user._id%>/applications/new"
-      >Add an App</a
-    >
+    <h1>Your Gift Baskets</h1>
+    <a class="add-app-link" href="/users/<%=user._id%>/baskets/new">Add a Basket</a>
   </div>
   <ul>
-    <% applications.forEach((application)=>{ %>
-    <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-      <li><%= application.title %> at <%= application.company %></li>
+    <% baskets.forEach((basket) => { %>
+    <a href="/users/<%= user._id %>/baskets/<%= basket._id %>">
+      <li><%= basket.basketName %> for <%= basket.recipient %> - <%= basket.occasion %></li>
     </a>
     <% }) %>
   </ul>
