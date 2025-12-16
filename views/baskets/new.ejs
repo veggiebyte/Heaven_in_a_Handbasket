@@ -49,7 +49,10 @@
     <label for="photo">Upload Photo (optional):</label>
     <input type="file" name="photo" id="photo" accept="image/*" />
 
+    <div class="form-buttons">
     <button type="submit">Create Basket</button>
+    <a href="/users/<%= user._id %>/baskets" class="cancel-btn">Cancel</a>
+    </div>
 </form>
     </div>
 
