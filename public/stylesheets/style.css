@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rum+Raisin&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -6,75 +6,86 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: #9ac2ef;
+  background-color: #f5f5dc; /* Cream background */
+  margin: 0;
+  padding: 0;
 }
 
 .index-body {
-  background-image: url('https://img.freepik.com/free-photo/rocket-taking-off-boost-symbol-ai-generated-image_268835-6577.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f5f5dc; /* Cream background instead of rocket image */
+  background-image: none;
   min-height: 100vh;
   width: 100vw;
-  color: white;
+  color: #754c24; /* Brown text */
 }
 
 .main-header {
+  font-family: 'Rum Raisin', cursive;
   font-weight: bold;
-  color: white;
-  font-size: 5.6em;
-  margin: -160px 20px 0 20px;
+  color: #42b19f; /* Teal */
+  font-size: 4em;
+  margin: 20px;
+  text-align: center;
 }
 
 .subheader {
-  margin: 0 20px 0 20px;
+  margin: 10px 20px;
   font-size: 1.4em;
+  color: #f7931e; /* Orange */
+  text-align: center;
 }
 
 .index-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 20px;
+}
+
+/* Add header logo */
+.header-logo {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto 30px;
 }
 
 .auth-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Side by side */
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  margin: 0 80px 0 0;
-  height: 100%;
+  margin-top: 30px;
 }
 
 .signup-link,
 .signin-link {
   text-decoration: none;
-  font-size: 1.5em;
-  padding: 8px 0;
+  font-size: 1.3em;
+  padding: 12px 30px;
   border-radius: 25px;
-  width: 10em;
   text-align: center;
+  font-weight: 600;
 }
 
 .signup-link {
-  background-color: #ce4866;
+  background-color: #f7931e; /* Orange */
   color: white;
-  margin: 0 0 20px 0;
 }
 
 .signup-link:hover {
-  background-color: #ff5378;
+  background-color: #e9661e; /* Reddish orange */
 }
 
 .signin-link {
-  background-color: #f6e7e7;
-  color: #1c2e5b;
-  margin: 20px 0 0 0;
+  background-color: #42b19f; /* Teal */
+  color: white;
 }
 
 .signin-link:hover {
-  background-color: #ffffff;
+  background-color: #3a9d8c;
 }
 
 .signin-container,
@@ -88,7 +99,8 @@ body {
 }
 
 h1 {
-  color: #1c2e5b;
+  color: #754c24; /* Brown */
+  font-family: 'Rum Raisin', cursive;
 }
 
 form {
@@ -96,35 +108,42 @@ form {
   flex-direction: column;
   justify-content: space-evenly;
   width: 20em;
-  height: 50%;
-  background-color: #f6e7e7;
+  background-color: white;
   padding: 30px 40px 20px 40px;
   border-radius: 20px;
-  color: #4b598e;
+  color: #754c24; /* Brown */
   font-weight: bold;
+  border: 3px solid #42b19f; /* Teal border */
 }
 
 input {
-  border: 1px solid rgb(182, 182, 182);
-  padding: 8px;
+  border: 2px solid #42b19f; /* Teal border */
+  padding: 10px;
   border-radius: 10px;
 }
 
 button {
-  padding: 10px;
-  background-color: #ce4866;
+  padding: 12px;
+  background-color: #f7931e; /* Orange */
   color: white;
   border-radius: 30px;
   border: none;
   margin: 15px 0;
   font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e9661e; /* Reddish orange */
 }
 
 .all-apps-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
 .all-apps-header {
@@ -132,79 +151,79 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px;
   width: 90%;
+  max-width: 1000px;
 }
 
 .add-app-link {
-  padding: 10px;
-  background-color: #ce4866;
+  padding: 12px 25px;
+  background-color: #f7931e; /* Orange */
   color: white;
   border-radius: 30px;
   border: none;
   font-size: 1.1em;
-  padding: 2px 25px;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .add-app-link:hover {
-  background-color: #e84a6c;
+  background-color: #e9661e; /* Reddish orange */
 }
 
 ul {
   list-style: none;
   width: 90%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 ul > a {
   text-decoration: none;
-  color: #1c2e5b;
-  width: 50%;
-  background-color: #f6e7e7;
-  border-radius: 30px;
-  padding: 10px 20px;
-  margin: 15px 0;
+  color: #754c24; /* Brown */
+  width: 80%;
+  background-color: white;
+  border: 2px solid #42b19f; /* Teal border */
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin: 10px 0;
   font-weight: bold;
   text-align: center;
 }
 
 ul > a:hover {
-  background-color: #4b598e;
+  background-color: #42b19f; /* Teal */
   color: white;
 }
 
-.new-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.new-body > form,
-.edit-body > form {
-  height: 70%;
-}
-
-textarea,
-select {
-  border: 1px solid rgb(182, 182, 182);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-select {
-  margin-bottom: 10px;
-}
-
+.new-body,
 .edit-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 80vh;
+  padding: 20px;
 }
 
+.new-body > form,
+.edit-body > form {
+  width: 90%;
+  max-width: 600px;
+}
+
+textarea,
+select {
+  border: 2px solid #42b19f; /* Teal border */
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+select {
+  margin-bottom: 10px;
+}
