@@ -3,68 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/show.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= basket.basketName %></title>
   </head>
 
   <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="show-body">
-    <div class="show-header">
-      <h1><%= basket.basketName %></h1>
-      <div class="show-sidebar">
+  
+  <div class="show-page">
+    <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+    
+    <div class="show-container">
+      <div class="show-header">
+        <h1><%= basket.basketName %></h1>
         <div class="show-actions">
-          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit">
-            Edit Basket
-          </a>
-          <form
-            action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE"
-            method="POST"
-          >
-            <button type="submit">Delete Basket</button>
+          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit" class="action-btn edit-btn">Edit Basket</a>
+          <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="action-btn delete-btn">Delete Basket</button>
           </form>
         </div>
-        <p><strong>Status:</strong> <%= basket.status %></p>
       </div>
-    </div>
-    
-    <div class="show-notes-container">
+
+      <p class="basket-status"><strong>Status:</strong> <%= basket.status %></p>
+
       <div class="basket-details">
-        <p><strong>Recipient:</strong> <%= basket.recipient %></p>
-        <p><strong>Occasion:</strong> <%= basket.occasion %></p>
-        
+        <div class="detail-item">
+          <strong>Recipient:</strong> <%= basket.recipient %>
+        </div>
+        <div class="detail-item">
+          <strong>Occasion:</strong> <%= basket.occasion %>
+        </div>
         <% if (basket.theme) { %>
-        <p><strong>Theme:</strong> <%= basket.theme %></p>
+        <div class="detail-item">
+          <strong>Theme:</strong> <%= basket.theme %>
+        </div>
         <% } %>
-        
-        <p><strong>Date Needed:</strong> <%= new Date(basket.dateNeeded).toLocaleDateString() %></p>
-        
+        <div class="detail-item">
+          <strong>Date Needed:</strong> <%= new Date(basket.dateNeeded).toLocaleDateString() %>
+        </div>
         <% if (basket.budget) { %>
-        <p><strong>Budget:</strong> <%= basket.budget %></p>
+        <div class="detail-item">
+          <strong>Budget:</strong> <%= basket.budget %>
+        </div>
         <% } %>
       </div>
 
       <% if (basket.items) { %>
-      <div class="show-notes">
-        <h2>Items / Shopping List:</h2>
+      <div class="basket-section">
+        <h3>Items / Shopping List:</h3>
         <p><%= basket.items %></p>
       </div>
       <% } %>
       
       <% if (basket.notes) { %>
-      <div class="show-notes">
-        <h2>Notes:</h2>
+      <div class="basket-section">
+        <h3>Notes:</h3>
         <p><%= basket.notes %></p>
       </div>
       <% } %>
       
       <% if (basket.photo) { %>
-      <div class="basket-photo">
-        <h2>Photo:</h2>
-        <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" />
+      <div class="basket-section">
+        <h3>Photo:</h3>
+        <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" class="basket-photo" />
       </div>
       <% } %>
+
+      <div class="back-link">
+        <a href="/users/<%= user._id %>/baskets">← Back to Your Baskets</a>
+      </div>
     </div>
   </div>
-</body>
+  </body>
 </html>
