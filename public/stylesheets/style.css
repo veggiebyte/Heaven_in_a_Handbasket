@@ -18,7 +18,7 @@ h1, h2 {
 
 .welcome-message {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.8em;
+  font-size: 2.2em;
   color: #42b19f;
   text-align: center;
   margin: 20px 0 10px 0;
@@ -165,9 +165,99 @@ button:hover {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 1.4em;
 }
 
 .add-basket-link:hover {
+  background-color: #e9661e;
+}
+
+.baskets-header h1 {
+  color: #754c24; 
+  font-size: 2.5em; 
+}
+
+/* Basket list items with details and actions */
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #42b19f;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.basket-info {
+  flex: 1;
+}
+
+.basket-info h3 {
+  margin: 0 0 10px 0;
+  color: #754c24;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3em;
+}
+
+.basket-info p {
+  margin: 5px 0;
+  color: #754c24;
+}
+
+.basket-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.basket-actions form {
+  margin: 0; 
+  padding: 0;
+  background: none;
+  border: none;
+  display: inline;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.view-btn {
+  background-color: #42b19f;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #e9661e;
+}
+
+.edit-btn {
+  background-color: #f7931e;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e9661e;
+}
+
+.delete-btn {
+  background-color: #754c24;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.delete-btn:hover {
   background-color: #e9661e;
 }
 
