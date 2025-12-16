@@ -1,229 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rum+Raisin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rum+Raisin&family=Quicksand:wght@400;600;700&display=swap');
 
+/* BASE STYLES - Apply to all pages */
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  background-color: #f5f5dc; /* Cream background */
+  background-color: #f5f5dc;
+  color: #754c24; 
   margin: 0;
   padding: 0;
-}
-
-.index-body {
-  background-color: #f5f5dc; /* Cream background instead of rocket image */
-  background-image: none;
   min-height: 100vh;
-  width: 100vw;
-  color: #754c24; /* Brown text */
 }
 
-.main-header {
+h1, h2 {
   font-family: 'Rum Raisin', cursive;
-  font-weight: bold;
-  color: #42b19f; /* Teal */
-  font-size: 4em;
-  margin: 20px;
-  text-align: center;
+  color: #754c24;
+  letter-spacing: 0.05em;
 }
 
-.subheader {
-  margin: 10px 20px;
-  font-size: 1.4em;
-  color: #f7931e; /* Orange */
-  text-align: center;
-}
-
-.index-container {
+/* LANDING PAGE ONLY - Photo + Text Layout */
+.landing-content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
   align-items: center;
-  height: 100%;
-  padding: 20px;
 }
 
-/* Add header logo */
-.header-logo {
-  max-width: 800px;
-  width: 90%;
-  margin: 0 auto 30px;
+.landing-photo {
+  max-width: 45%;
+  height: auto;
+  border-radius: 15px;
+  border: 3px solid #42b19f;
 }
 
-.auth-links {
-  display: flex;
-  flex-direction: row; /* Side by side */
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+.landing-text {
+  flex: 1;
+}
+
+.landing-text h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #42b19f;
+  font-weight: 700;
+}
+
+.landing-text p {
+  font-size: 1.6em;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.signin-prompt {
   margin-top: 30px;
-}
-
-.signup-link,
-.signin-link {
-  text-decoration: none;
-  font-size: 1.3em;
-  padding: 12px 30px;
-  border-radius: 25px;
-  text-align: center;
   font-weight: 600;
 }
 
-.signup-link {
-  background-color: #f7931e; /* Orange */
-  color: white;
+.signin-prompt a {
+  color: #f7931e;
+  text-decoration: underline;
 }
 
-.signup-link:hover {
-  background-color: #e9661e; /* Reddish orange */
-}
-
-.signin-link {
-  background-color: #42b19f; /* Teal */
-  color: white;
-}
-
-.signin-link:hover {
-  background-color: #3a9d8c;
-}
-
-.signin-container,
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-h1 {
-  color: #754c24; /* Brown */
-  font-family: 'Rum Raisin', cursive;
-}
-
+/* FORMS - Used on sign in, sign up, new, edit pages */
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 20em;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
   background-color: white;
-  padding: 30px 40px 20px 40px;
+  padding: 30px;
   border-radius: 20px;
-  color: #754c24; /* Brown */
-  font-weight: bold;
-  border: 3px solid #42b19f; /* Teal border */
+  border: 3px solid #42b19f;
+  margin: 0 auto;
 }
 
-input {
-  border: 2px solid #42b19f; /* Teal border */
+input, textarea, select {
+  border: 2px solid #42b19f;
   padding: 10px;
   border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 button {
   padding: 12px;
-  background-color: #f7931e; /* Orange */
+  background-color: #f7931e;
   color: white;
   border-radius: 30px;
   border: none;
-  margin: 15px 0;
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #e9661e; /* Reddish orange */
+  background-color: #e9661e;
 }
 
+/* BASKETS LIST PAGE */
 .all-apps-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   padding: 20px;
 }
 
 .all-apps-header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  width: 90%;
   max-width: 1000px;
+  margin: 0 auto;
 }
 
 .add-app-link {
   padding: 12px 25px;
-  background-color: #f7931e; /* Orange */
+  background-color: #f7931e;
   color: white;
   border-radius: 30px;
-  border: none;
-  font-size: 1.1em;
   text-decoration: none;
   font-weight: 600;
 }
 
 .add-app-link:hover {
-  background-color: #e9661e; /* Reddish orange */
+  background-color: #e9661e;
 }
 
 ul {
   list-style: none;
-  width: 90%;
   max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
   padding: 0;
 }
 
 ul > a {
+  display: block;
   text-decoration: none;
-  color: #754c24; /* Brown */
-  width: 80%;
+  color: #754c24;
   background-color: white;
-  border: 2px solid #42b19f; /* Teal border */
+  border: 2px solid #42b19f;
   border-radius: 15px;
   padding: 15px 20px;
   margin: 10px 0;
-  font-weight: bold;
-  text-align: center;
+  font-weight: 600;
 }
 
 ul > a:hover {
-  background-color: #42b19f; /* Teal */
+  background-color: #42b19f;
   color: white;
 }
 
+/* FORM PAGES (new, edit, sign in, sign up) */
 .new-body,
-.edit-body {
+.edit-body,
+.signin-container,
+.signup-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  padding: 20px;
+  min-height: 70vh;
+  padding: 40px 20px;
 }
 
-.new-body > form,
-.edit-body > form {
-  width: 90%;
-  max-width: 600px;
-}
 
-textarea,
-select {
-  border: 2px solid #42b19f; /* Teal border */
-  border-radius: 10px;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-}
-
-select {
-  margin-bottom: 10px;
+/* SMALL SCREENS - Stack photo and text vertically */
+@media (max-width: 768px) {
+  .landing-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .landing-photo {
+    max-width: 60%; 
+    margin: 0 auto 20px; 
+  }
+  
+  .landing-text h2 {
+    font-size: 1.8em;
+  }
+  
+  .landing-text p {
+    font-size: 1.1em;
+  }
 }

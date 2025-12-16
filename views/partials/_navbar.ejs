@@ -1,23 +1,15 @@
 <link rel="stylesheet" href="/stylesheets/partials.css" />
 
-<nav>
-  <% if(user) { %>
-  <div class="navbar">
-    <h1 id="nav-header">Skyrockit</h1>
-    <div class="nav-links">
-      <a class="authlink" href="/users/<%=user._id%>/applications"
-        >Your Apps</a
-      >
-      <a class="authlink" href="/auth/sign-out">Sign Out</a>
-    </div>
-  </div>
-  <% } else { %>
-  <div class="navbar">
-    <h1 id="nav-header">Skyrockit</h1>
-    <div class="nav-links">
-      <a class="authlink" href="/auth/sign-in">Sign In</a>
-      <a class="authlink" href="/auth/sign-up">Sign Up</a>
-    </div>
-  </div>
-  <% } %>
-</nav>
+<header class="page-header">
+  <img src="/images/header-logo.png" alt="Heaven in a Handbasket" class="site-logo">
+  
+  <nav class="header-nav">
+    <% if(user) { %>
+      <a class="nav-link" href="/users/<%=user._id%>/baskets"><span class="star">✦</span> Your Baskets</a>
+      <a class="nav-link" href="/auth/sign-out"><span class="star">✦</span> Sign Out</a>
+    <% } else { %>
+      <a class="nav-link" href="/auth/sign-in"><span class="star">✦</span> Sign In</a>
+      <a class="nav-link" href="/auth/sign-up"><span class="star">✦</span> Sign Up</a>
+    <% } %>
+  </nav>
+</header>
