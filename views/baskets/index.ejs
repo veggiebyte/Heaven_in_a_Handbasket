@@ -8,18 +8,19 @@
   </head>
   <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="all-apps-body">
-  <div class="all-apps-header">
-    <h1>Your Gift Baskets</h1>
-    <a class="add-app-link" href="/users/<%=user._id%>/baskets/new">Add a Basket</a>
+  <div class="baskets-body">
+    <h2 style="text-align: center; color: #42b19f; margin-top: 20px;">Welcome, <%= user.username %>!</h2>
+    <div class="baskets-header">
+      <h1>Your Gift Baskets</h1>
+      <a class="add-basket-link" href="/users/<%=user._id%>/baskets/new">Add a Basket</a>
+    </div>
+    <ul>
+      <% baskets.forEach((basket) => { %>
+      <a href="/users/<%= user._id %>/baskets/<%= basket._id %>">
+        <li><%= basket.basketName %> for <%= basket.recipient %> - <%= basket.occasion %></li>
+      </a>
+      <% }) %>
+    </ul>
   </div>
-  <ul>
-    <% baskets.forEach((basket) => { %>
-    <a href="/users/<%= user._id %>/baskets/<%= basket._id %>">
-      <li><%= basket.basketName %> for <%= basket.recipient %> - <%= basket.occasion %></li>
-    </a>
-    <% }) %>
-  </ul>
-</div>
   </body>
 </html>

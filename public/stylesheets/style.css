@@ -16,6 +16,8 @@ h1, h2 {
   letter-spacing: 0.05em;
 }
 
+
+
 /* LANDING PAGE ONLY - Photo + Text Layout */
 .landing-content {
   display: flex;
@@ -98,11 +100,12 @@ button:hover {
 }
 
 /* BASKETS LIST PAGE */
-.all-apps-body {
+/* BASKETS LIST PAGE */
+.baskets-body {
   padding: 20px;
 }
 
-.all-apps-header {
+.baskets-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +114,7 @@ button:hover {
   margin: 0 auto;
 }
 
-.add-app-link {
+.add-basket-link {
   padding: 12px 25px;
   background-color: #f7931e;
   color: white;
@@ -120,7 +123,7 @@ button:hover {
   font-weight: 600;
 }
 
-.add-app-link:hover {
+.add-basket-link:hover {
   background-color: #e9661e;
 }
 
@@ -161,6 +164,23 @@ ul > a:hover {
   padding: 40px 20px;
 }
 
+.new-body h1,
+.edit-body h1 {
+  text-align: center;
+  color: #754c24; 
+  margin: 10px 0 30px 0;
+  font-size: 2.5em;
+}
+
+.welcome-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.8em;
+  color: #42b19f;
+  text-align: center;
+  margin: 20px 0 10px 0;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
 
 /* SMALL SCREENS - Stack photo and text vertically */
 @media (max-width: 768px) {
@@ -182,3 +202,4 @@ ul > a:hover {
     font-size: 1.1em;
   }
 }
+

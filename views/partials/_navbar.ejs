@@ -5,6 +5,7 @@
   
   <nav class="header-nav">
     <% if(user) { %>
+      <a class="nav-link" href="/users/<%=user._id%>/baskets"><span class="star">✦</span> Home</a>
       <a class="nav-link" href="/users/<%=user._id%>/baskets"><span class="star">✦</span> Your Baskets</a>
       <a class="nav-link" href="/auth/sign-out"><span class="star">✦</span> Sign Out</a>
     <% } else { %>
