@@ -457,3 +457,15 @@ ul > a:hover {
     align-items: flex-start;
   }
 }
+
+.shopping-list {
+  list-style: disc;
+  padding-left: 25px;
+  margin: 10px 0;
+}
+
+.shopping-list li {
+  color: #754c24;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
