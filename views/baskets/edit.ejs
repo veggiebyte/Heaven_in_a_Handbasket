@@ -1,96 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title>Edit <%= basket.basketName %></title>
+  <title>Edit <%= basket.basketName %>
+  </title>
 </head>
+
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="edit-body">
-  <h1>Edit <%= basket.basketName %></h1>
-  <form
-    action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=PUT"
-    method="POST"
-  >
-    <label for="basketName">Basket Name:</label>
-    <input
-      type="text"
-      name="basketName"
-      id="basketName"
-      value="<%= basket.basketName %>"
-      required
-    />
+    <div class="edit-body">
+      <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+      <h1>Edit <%= basket.basketName %>
+      </h1>
+      <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=PUT" method="POST">
+        <label for="basketName">Basket Name:</label>
+        <input type="text" name="basketName" id="basketName" value="<%= basket.basketName %>" required />
 
-    <label for="recipient">Recipient:</label>
-    <input
-      type="text"
-      name="recipient"
-      id="recipient"
-      value="<%= basket.recipient %>"
-      required
-    />
+        <label for="recipient">Recipient:</label>
+        <input type="text" name="recipient" id="recipient" value="<%= basket.recipient %>" required />
 
-    <label for="occasion">Occasion:</label>
-    <input
-      type="text"
-      name="occasion"
-      id="occasion"
-      value="<%= basket.occasion %>"
-      required
-    />
+        <label for="occasion">Occasion:</label>
+        <input type="text" name="occasion" id="occasion" value="<%= basket.occasion %>" required />
 
-    <label for="theme">Theme:</label>
-    <input
-      type="text"
-      name="theme"
-      id="theme"
-      value="<%= basket.theme || '' %>"
-    />
+        <label for="theme">Theme:</label>
+        <input type="text" name="theme" id="theme" value="<%= basket.theme || '' %>" />
 
-    <label for="dateNeeded">Date Needed:</label>
-    <input
-      type="date"
-      name="dateNeeded"
-      id="dateNeeded"
-      value="<%= basket.dateNeeded ? new Date(basket.dateNeeded).toISOString().split('T')[0] : '' %>"
-      required
-    />
+        <label for="dateNeeded">Date Needed:</label>
+        <input type="date" name="dateNeeded" id="dateNeeded"
+          value="<%= basket.dateNeeded ? new Date(basket.dateNeeded).toISOString().split('T')[0] : '' %>" required />
 
-    <label for="items">Items / Shopping List:</label>
-    <textarea name="items" id="items" rows="5"><%= basket.items || '' %></textarea>
+        <label for="items">Items / Shopping List:</label>
+        <textarea name="items" id="items" rows="5"
+          placeholder="Enter each item on a new line or separate with • bullets"><%= basket.items || '' %></textarea>
 
-    <label for="budget">Budget:</label>
-    <input
-      type="text"
-      name="budget"
-      id="budget"
-      value="<%= basket.budget || '' %>"
-      placeholder="e.g., $50"
-    />
+        <label for="budget">Budget:</label>
+        <input type="text" name="budget" id="budget" value="<%= basket.budget || '' %>" placeholder="e.g., $50" />
 
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes" rows="3"><%= basket.notes || '' %></textarea>
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes" rows="3"><%= basket.notes || '' %></textarea>
 
-    <label for="status">Status:</label>
-    <select id="status" name="status">
-      <option
-        value="Planning"
-        <%= basket.status === "Planning" ? "selected" : "" %>
-      >
-        Planning
-      </option>
-      <option
-        value="Completed"
-        <%= basket.status === "Completed" ? "selected" : "" %>
-      >
-        Completed
-      </option>
-    </select>
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+          <option value="Planning" <%=basket.status==="Planning" ? "selected" : "" %>
+            >
+            Planning
+          </option>
+          <option value="Completed" <%=basket.status==="Completed" ? "selected" : "" %>
+            >
+            Completed
+          </option>
+        </select>
 
-    <button type="submit">Update Basket</button>
-  </form>
-  </div>
+        <label for="photo">Inspiration Photo (optional):</label>
+        <select id="photo" name="photo">
+          <option value="" <%=!basket.photo ? 'selected' : '' %>>-- No Photo --</option>
+          <option value="/images/basket_inspo/bear_basket.jpg" <%=basket.photo==='/images/basket_inspo/bear_basket.jpg'
+            ? 'selected' : '' %>>Teddy Bear Gift Basket</option>
+          <option value="/images/basket_inspo/pink_spa_basket.jpg"
+            <%=basket.photo==='/images/basket_inspo/pink_spa_basket.jpg' ? 'selected' : '' %>>Pink Spa Basket</option>
+          <option value="/images/basket_inspo/wine_xmas_inspo.jpg"
+            <%=basket.photo==='/images/basket_inspo/wine_xmas_inspo.jpg' ? 'selected' : '' %>>Wine & Christmas Basket
+          </option>
+        </select>
+        <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
+
+        <div class="form-buttons">
+          <button type="submit">Update Basket</button>
+          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>" class="cancel-btn">Cancel</a>
+        </div>
+      </form>
+    </div>
 </body>
+
 </html>
