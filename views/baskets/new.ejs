@@ -22,8 +22,37 @@
                 <label for="recipient">Recipient:</label>
                 <input type="text" name="recipient" id="recipient" required />
 
+                <label for="recipient">Recipient:</label>
+                <input type="text" name="recipient" id="recipient" required />
+
+                <label for="recipientAge">Recipient's Age (optional):</label>
+                <input type="number" name="recipientAge" id="recipientAge" min="0" max="120" placeholder="e.g., 35" />
+
                 <label for="occasion">Occasion:</label>
-                <input type="text" name="occasion" id="occasion" required />
+                <select id="occasion" name="occasion" required
+                    onchange="if(this.value=='Other'){document.getElementById('customOccasion').style.display='block'; document.getElementById('customOccasion').required=true;} else {document.getElementById('customOccasion').style.display='none'; document.getElementById('customOccasion').required=false;}">
+                    <option value="">-- Select Occasion --</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Christmas">Christmas</option>
+                    <option value="Hanukkah">Hanukkah</option>
+                    <option value="Easter">Easter</option>
+                    <option value="Mother's Day">Mother's Day</option>
+                    <option value="Father's Day">Father's Day</option>
+                    <option value="Valentine's Day">Valentine's Day</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Baby Shower">Baby Shower</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Thank You">Thank You</option>
+                    <option value="Get Well Soon">Get Well Soon</option>
+                    <option value="Sympathy">Sympathy</option>
+                    <option value="Housewarming">Housewarming</option>
+                    <option value="Retirement">Retirement</option>
+                    <option value="Other">Other (specify below)</option>
+                </select>
+
+                <input type="text" name="customOccasion" id="customOccasion" placeholder="Enter custom occasion"
+                    style="display:none;" />
 
                 <label for="theme">Theme:</label>
                 <input type="text" name="theme" id="theme" />

@@ -9,6 +9,13 @@ const basketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  recipientAge: {
+    type: Number,
+    min: 0,
+    max: 120,
+  },
+
   occasion: {
     type: String,
     required: true,

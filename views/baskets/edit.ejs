@@ -5,85 +5,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title>Edit <%= basket.basketName %>
-  </title>
+  <title>Edit <%= basket.basketName %></title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-    <div class="edit-body">
-      <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
-      <h1>Edit <%= basket.basketName %>
-      </h1>
-      <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=PUT" method="POST">
-        <label for="basketName">Basket Name:</label>
-        <input type="text" name="basketName" id="basketName" value="<%= basket.basketName %>" required />
+  <div class="edit-body">
+    <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+    <h1>Edit <%= basket.basketName %></h1>
+    
+    <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=PUT" method="POST">
+      
+      <label for="basketName">Basket Name:</label>
+      <input type="text" name="basketName" id="basketName" value="<%= basket.basketName %>" required />
 
-        <label for="recipient">Recipient:</label>
-        <input type="text" name="recipient" id="recipient" value="<%= basket.recipient %>" required />
+      <label for="recipient">Recipient:</label>
+      <input type="text" name="recipient" id="recipient" value="<%= basket.recipient %>" required />
 
-        <label for="occasion">Occasion:</label>
-        <input type="text" name="occasion" id="occasion" value="<%= basket.occasion %>" required />
+      <label for="recipientAge">Recipient's Age (optional):</label>
+      <input type="number" name="recipientAge" id="recipientAge" min="0" max="120" value="<%= basket.recipientAge || '' %>" placeholder="e.g., 35" />
 
-        <label for="theme">Theme:</label>
-        <input type="text" name="theme" id="theme" value="<%= basket.theme || '' %>" />
+      <label for="occasion">Occasion:</label>
+      <select id="occasion" name="occasion" required onchange="if(this.value=='Other'){document.getElementById('customOccasion').style.display='block'; document.getElementById('customOccasion').required=true;} else {document.getElementById('customOccasion').style.display='none'; document.getElementById('customOccasion').required=false;}">
+        <option value="">-- Select Occasion --</option>
+        <option value="Birthday" <%= basket.occasion === 'Birthday' ? 'selected' : '' %>>Birthday</option>
+        <option value="Christmas" <%= basket.occasion === 'Christmas' ? 'selected' : '' %>>Christmas</option>
+        <option value="Hanukkah" <%= basket.occasion === 'Hanukkah' ? 'selected' : '' %>>Hanukkah</option>
+        <option value="Easter" <%= basket.occasion === 'Easter' ? 'selected' : '' %>>Easter</option>
+        <option value="Mother's Day" <%= basket.occasion === "Mother's Day" ? 'selected' : '' %>>Mother's Day</option>
+        <option value="Father's Day" <%= basket.occasion === "Father's Day" ? 'selected' : '' %>>Father's Day</option>
+        <option value="Valentine's Day" <%= basket.occasion === "Valentine's Day" ? 'selected' : '' %>>Valentine's Day</option>
+        <option value="Anniversary" <%= basket.occasion === 'Anniversary' ? 'selected' : '' %>>Anniversary</option>
+        <option value="Wedding" <%= basket.occasion === 'Wedding' ? 'selected' : '' %>>Wedding</option>
+        <option value="Baby Shower" <%= basket.occasion === 'Baby Shower' ? 'selected' : '' %>>Baby Shower</option>
+        <option value="Graduation" <%= basket.occasion === 'Graduation' ? 'selected' : '' %>>Graduation</option>
+        <option value="Thank You" <%= basket.occasion === 'Thank You' ? 'selected' : '' %>>Thank You</option>
+        <option value="Get Well Soon" <%= basket.occasion === 'Get Well Soon' ? 'selected' : '' %>>Get Well Soon</option>
+        <option value="Sympathy" <%= basket.occasion === 'Sympathy' ? 'selected' : '' %>>Sympathy</option>
+        <option value="Housewarming" <%= basket.occasion === 'Housewarming' ? 'selected' : '' %>>Housewarming</option>
+        <option value="Retirement" <%= basket.occasion === 'Retirement' ? 'selected' : '' %>>Retirement</option>
+        <option value="Other" <%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? 'selected' : '' %>>Other (specify below)</option>
+      </select>
 
-        <label for="dateNeeded">Date Needed:</label>
-        <input type="date" name="dateNeeded" id="dateNeeded"
-          value="<%= basket.dateNeeded ? new Date(basket.dateNeeded).toISOString().split('T')[0] : '' %>" required />
+      <input type="text" name="customOccasion" id="customOccasion" placeholder="Enter custom occasion" value="<%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? basket.occasion : '' %>" style="<%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? 'display:block;' : 'display:none;' %>" />
 
-        <label for="items">Items / Shopping List:</label>
-        <textarea name="items" id="items" rows="5"
-          placeholder="Enter each item on a new line or separate with • bullets"><%= basket.items || '' %></textarea>
+      <label for="theme">Theme:</label>
+      <input type="text" name="theme" id="theme" value="<%= basket.theme || '' %>" />
 
-        <label for="budget">Budget:</label>
-        <input type="text" name="budget" id="budget" value="<%= basket.budget || '' %>" placeholder="e.g., $50" />
+      <label for="dateNeeded">Date Needed:</label>
+      <input type="date" name="dateNeeded" id="dateNeeded" value="<%= basket.dateNeeded ? new Date(basket.dateNeeded).toISOString().split('T')[0] : '' %>" required />
 
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes" rows="3"><%= basket.notes || '' %></textarea>
+      <label for="items">Items / Shopping List:</label>
+      <textarea name="items" id="items" rows="5" placeholder="Enter each item on a new line or separate with • bullets"><%= basket.items || '' %></textarea>
 
-        <label for="status">Status:</label>
-        <select id="status" name="status">
-          <option value="Planning" <%=basket.status==="Planning" ? "selected" : "" %>
-            >
-            Planning
-          </option>
-          <option value="Completed" <%=basket.status==="Completed" ? "selected" : "" %>
-            >
-            Completed
-          </option>
-        </select>
+      <label for="budget">Budget:</label>
+      <input type="text" name="budget" id="budget" value="<%= basket.budget || '' %>" placeholder="e.g., $50" />
 
-        <label for="photo">Inspiration Photo (optional):</label>
-        <select id="photo" name="photo">
-          <option value="">-- No Photo --</option>
-          <option value="/images/basket_inspo/bear_basket.jpg">Teddy Bear Gift Basket</option>
-          <option value="/images/basket_inspo/cat_pet_Easter_basket.jpg">Cat Easter Basket</option>
-          <option value="/images/basket_inspo/dog_pet_Easter_basket.jpg">Dog Easter Basket</option>
-          <option value="/images/basket_inspo/flower_basket.jpg">Flower Basket</option>
-          <option value="/images/basket_inspo/gift_basket_general.jpg">General Gift Basket</option>
-          <option value="/images/basket_inspo/orange_flower_spa_basket.jpg">Orange Flower Spa</option>
-          <option value="/images/basket_inspo/pink_spa_basket.jpg">Pink Spa Basket</option>
-          <option value="/images/basket_inspo/red_gift_basket.jpg">Red Gift Basket</option>
-          <option value="/images/basket_inspo/sachet_gift_basket.jpg">Sachet Gift Basket</option>
-          <option value="/images/basket_inspo/spa_basket.jpg">Spa Basket</option>
-          <option value="/images/basket_inspo/wine_basket.jpg">Wine Basket</option>
-          <option value="/images/basket_inspo/wine_present_basket.jpg">Wine Present Basket</option>
-          <option value="/images/basket_inspo/wine_present_basket2.jpg">Wine Present Basket 2</option>
-          <option value="/images/basket_inspo/wine_xmas_inspo.jpg">Wine Christmas Basket</option>
-          <option value="/images/basket_inspo/wine_xmas_basket.jpg">Wine Holiday Basket</option>
-          <option value="/images/basket_inspo/xmas_basket.jpg">Christmas Basket</option>
-          <option value="/images/basket_inspo/xmas_cat_basket.jpg">Christmas Cat Basket</option>
-          <option value="/images/basket_inspo/yellow_kitchen_basket.jpg">Yellow Kitchen Basket</option>
-        </select>
-        <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
+      <label for="notes">Notes:</label>
+      <textarea name="notes" id="notes" rows="3"><%= basket.notes || '' %></textarea>
 
-        <div class="form-buttons">
-          <button type="submit">Update Basket</button>
-          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>" class="cancel-btn">Cancel</a>
-        </div>
-      </form>
-    </div>
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="Planning" <%= basket.status === "Planning" ? "selected" : "" %>>Planning</option>
+        <option value="Completed" <%= basket.status === "Completed" ? "selected" : "" %>>Completed</option>
+      </select>
+
+      <label for="photo">Inspiration Photo (optional):</label>
+      <select id="photo" name="photo">
+        <option value="" <%= !basket.photo ? 'selected' : '' %>>-- No Photo --</option>
+        <option value="/images/basket_inspo/bear_basket.jpg" <%= basket.photo === '/images/basket_inspo/bear_basket.jpg' ? 'selected' : '' %>>Teddy Bear Gift Basket</option>
+        <option value="/images/basket_inspo/cat_pet_Easter_basket.jpg" <%= basket.photo === '/images/basket_inspo/cat_pet_Easter_basket.jpg' ? 'selected' : '' %>>Cat Easter Basket</option>
+        <option value="/images/basket_inspo/dog_pet_Easter_basket.jpg" <%= basket.photo === '/images/basket_inspo/dog_pet_Easter_basket.jpg' ? 'selected' : '' %>>Dog Easter Basket</option>
+        <option value="/images/basket_inspo/flower_basket.jpg" <%= basket.photo === '/images/basket_inspo/flower_basket.jpg' ? 'selected' : '' %>>Flower Basket</option>
+        <option value="/images/basket_inspo/gift_basket_general.jpg" <%= basket.photo === '/images/basket_inspo/gift_basket_general.jpg' ? 'selected' : '' %>>General Gift Basket</option>
+        <option value="/images/basket_inspo/orange_flower_spa_basket.jpg" <%= basket.photo === '/images/basket_inspo/orange_flower_spa_basket.jpg' ? 'selected' : '' %>>Orange Flower Spa</option>
+        <option value="/images/basket_inspo/pink_spa_basket.jpg" <%= basket.photo === '/images/basket_inspo/pink_spa_basket.jpg' ? 'selected' : '' %>>Pink Spa Basket</option>
+        <option value="/images/basket_inspo/red_gift_basket.jpg" <%= basket.photo === '/images/basket_inspo/red_gift_basket.jpg' ? 'selected' : '' %>>Red Gift Basket</option>
+        <option value="/images/basket_inspo/sachet_gift_basket.jpg" <%= basket.photo === '/images/basket_inspo/sachet_gift_basket.jpg' ? 'selected' : '' %>>Sachet Gift Basket</option>
+        <option value="/images/basket_inspo/spa_basket.jpg" <%= basket.photo === '/images/basket_inspo/spa_basket.jpg' ? 'selected' : '' %>>Spa Basket</option>
+        <option value="/images/basket_inspo/wine_basket.jpg" <%= basket.photo === '/images/basket_inspo/wine_basket.jpg' ? 'selected' : '' %>>Wine Basket</option>
+        <option value="/images/basket_inspo/wine_present_basket.jpg" <%= basket.photo === '/images/basket_inspo/wine_present_basket.jpg' ? 'selected' : '' %>>Wine Present Basket</option>
+        <option value="/images/basket_inspo/wine_present_basket2.jpg" <%= basket.photo === '/images/basket_inspo/wine_present_basket2.jpg' ? 'selected' : '' %>>Wine Present Basket 2</option>
+        <option value="/images/basket_inspo/wine_xmas_inspo.jpg" <%= basket.photo === '/images/basket_inspo/wine_xmas_inspo.jpg' ? 'selected' : '' %>>Wine Christmas Basket</option>
+        <option value="/images/basket_inspo/wine_xmas_basket.jpg" <%= basket.photo === '/images/basket_inspo/wine_xmas_basket.jpg' ? 'selected' : '' %>>Wine Holiday Basket</option>
+        <option value="/images/basket_inspo/xmas_basket.jpg" <%= basket.photo === '/images/basket_inspo/xmas_basket.jpg' ? 'selected' : '' %>>Christmas Basket</option>
+        <option value="/images/basket_inspo/xmas_cat_basket.jpg" <%= basket.photo === '/images/basket_inspo/xmas_cat_basket.jpg' ? 'selected' : '' %>>Christmas Cat Basket</option>
+        <option value="/images/basket_inspo/yellow_kitchen_basket.jpg" <%= basket.photo === '/images/basket_inspo/yellow_kitchen_basket.jpg' ? 'selected' : '' %>>Yellow Kitchen Basket</option>
+      </select>
+      <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
+
+      <div class="form-buttons">
+        <button type="submit">Update Basket</button>
+        <a href="/users/<%= user._id %>/baskets/<%= basket._id %>" class="cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>
