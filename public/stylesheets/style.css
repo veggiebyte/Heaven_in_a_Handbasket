@@ -532,3 +532,17 @@ ul>a:hover {
   color: #42b19f;
   margin-top: 5px;
 }
+
+.shopping-list-link {
+  padding: 12px 25px;
+  background-color: #42b19f;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.shopping-list-link:hover {
+  background-color: #e9661e;
+}

@@ -13,9 +13,9 @@
   <div class="edit-body">
     <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
     <h1>Edit <%= basket.basketName %></h1>
-    
+
     <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=PUT" method="POST">
-      
+
       <label for="basketName">Basket Name:</label>
       <input type="text" name="basketName" id="basketName" value="<%= basket.basketName %>" required />
 
@@ -44,10 +44,10 @@
         <option value="Sympathy" <%= basket.occasion === 'Sympathy' ? 'selected' : '' %>>Sympathy</option>
         <option value="Housewarming" <%= basket.occasion === 'Housewarming' ? 'selected' : '' %>>Housewarming</option>
         <option value="Retirement" <%= basket.occasion === 'Retirement' ? 'selected' : '' %>>Retirement</option>
-        <option value="Other" <%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? 'selected' : '' %>>Other (specify below)</option>
+        <option value="Other">Other (specify below)</option>
       </select>
 
-      <input type="text" name="customOccasion" id="customOccasion" placeholder="Enter custom occasion" value="<%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? basket.occasion : '' %>" style="<%= !['Birthday','Christmas','Hanukkah','Easter',"Mother's Day","Father's Day","Valentine's Day",'Anniversary','Wedding','Baby Shower','Graduation','Thank You','Get Well Soon','Sympathy','Housewarming','Retirement'].includes(basket.occasion) ? 'display:block;' : 'display:none;' %>" />
+      <input type="text" name="customOccasion" id="customOccasion" placeholder="Enter custom occasion" style="display:none;" />
 
       <label for="theme">Theme:</label>
       <input type="text" name="theme" id="theme" value="<%= basket.theme || '' %>" />
@@ -56,7 +56,8 @@
       <input type="date" name="dateNeeded" id="dateNeeded" value="<%= basket.dateNeeded ? new Date(basket.dateNeeded).toISOString().split('T')[0] : '' %>" required />
 
       <label for="items">Items / Shopping List:</label>
-      <textarea name="items" id="items" rows="5" placeholder="Enter each item on a new line or separate with • bullets"><%= basket.items || '' %></textarea>
+      <p style="font-size: 0.85em; color: #754c24; margin: 0 0 5px 0;">Enter one item per line</p>
+      <textarea name="items" id="items" rows="8"><%= basket.items || '' %></textarea>
 
       <label for="budget">Budget:</label>
       <input type="text" name="budget" id="budget" value="<%= basket.budget || '' %>" placeholder="e.g., $50" />
@@ -71,8 +72,7 @@
       </select>
 
       <label for="photo">Inspiration Photo (optional):</label>
-      <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
-
+      <p style="font-size: 0.85em; color: #754c24; margin: 0 0 5px 0;">Choose a photo to inspire your basket design</p>
       <select id="photo" name="photo">
         <option value="" <%= !basket.photo ? 'selected' : '' %>>-- No Photo --</option>
         <option value="/images/basket_inspo/bear_basket.jpg" <%= basket.photo === '/images/basket_inspo/bear_basket.jpg' ? 'selected' : '' %>>Teddy Bear Gift Basket</option>

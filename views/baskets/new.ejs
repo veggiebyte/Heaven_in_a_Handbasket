@@ -58,7 +58,12 @@
                 <input type="date" name="dateNeeded" id="dateNeeded" required />
 
                 <label for="items">Items / Shopping List:</label>
-                <textarea name="items" id="items" rows="5"></textarea>
+                <p style="font-size: 0.85em; color: #754c24; margin: 0 0 5px 0;">Enter one item per line</p>
+                <textarea name="items" id="items" rows="8" 
+                placeholder="Bath salts
+                Scented candles
+                Face masks
+                Herbal tea"></textarea>
 
                 <label for="budget">Budget:</label>
                 <input type="text" name="budget" id="budget" placeholder="e.g., $50" />
@@ -73,7 +78,8 @@
                 </select>
 
                 <label for="photo">Inspiration Photo (optional):</label>
-                  <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
+                <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design
+                </p>
                 <select id="photo" name="photo">
                     <option value="">-- No Photo --</option>
                     <option value="/images/basket_inspo/bear_basket.jpg">Teddy Bear Gift Basket</option>
@@ -95,7 +101,7 @@
                     <option value="/images/basket_inspo/xmas_cat_basket.jpg">Christmas Cat Basket</option>
                     <option value="/images/basket_inspo/yellow_kitchen_basket.jpg">Yellow Kitchen Basket</option>
                 </select>
-              
+
 
                 <div class="form-buttons">
                     <button type="submit">Create Basket</button>
