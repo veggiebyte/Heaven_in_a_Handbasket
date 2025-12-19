@@ -61,7 +61,6 @@
 
 - **Full CRUD Functionality** - Create, read, update, and delete gift basket plans
 - **User Authentication** - Secure sign-up and login with session management
-- **Occasion Templates** - Choose from 18+ preset occasions or create custom ones
 - **Inspiration Photo Library** - 18 curated basket images to spark creativity
 - **Recipient Tracking** - Track recipient name, age, and preferences
 - **Budget Management** - Set and monitor basket budgets
@@ -113,7 +112,7 @@
 ## :trophy: Acknowledgments
 
 - Custom logo and branding designed in Adobe Illustrator
-- Inspiration photos sourced from royalty-free stock sites
+- Inspiration photos sourced from royalty-free stock sites (Depositphotos.com)
 - Shopping List aggregation logic adapted from JavaScript array methods
 - Embedded subdocument schema pattern from MongoDB documentation
 - Built as Project 2 for General Assembly's Software Engineering Immersive
