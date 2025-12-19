@@ -35,13 +35,13 @@ app.use(
   })
 );
 
-app.use(passUserToView); 
+app.use(passUserToView);
 
 app.get('/', (req, res) => {
   // Check if the user is signed in
   if (req.session.user) {
     // Redirect signed-in users to their baskets index
-    res.redirect(`/users/${req.session.user._id}/baskets`);  
+    res.redirect(`/users/${req.session.user._id}/baskets`);
   } else {
     // Show the homepage for users who are not signed in
     res.render('index.ejs');
@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use(isSignedIn);
 
-app.use('/users/:userId/baskets', basketsController);  
+app.use('/users/:userId/baskets', basketsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

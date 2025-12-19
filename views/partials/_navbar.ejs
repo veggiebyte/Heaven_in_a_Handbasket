@@ -4,14 +4,14 @@
   <a href="/">
     <img src="/images/header-logo.png" alt="Heaven in a Handbasket Logo" class="site-logo">
   </a>
-  
+
   <nav class="header-nav">
     <% if (locals.user) { %>
       <a href="/users/<%= user._id %>/baskets" class="nav-link"><span class="star">✦</span> Your Baskets</a>
       <a href="/auth/sign-out" class="nav-link"><span class="star">✦</span> Sign Out</a>
-    <% } else { %>
-      <a href="/auth/sign-in" class="nav-link"><span class="star">✦</span> Sign In</a>
-      <a href="/auth/sign-up" class="nav-link"><span class="star">✦</span> Sign Up</a>
-    <% } %>
+      <% } else { %>
+        <a href="/auth/sign-in" class="nav-link"><span class="star">✦</span> Sign In</a>
+        <a href="/auth/sign-up" class="nav-link"><span class="star">✦</span> Sign Up</a>
+        <% } %>
   </nav>
 </header>

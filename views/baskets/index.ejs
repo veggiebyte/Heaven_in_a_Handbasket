@@ -10,8 +10,10 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
+
     <div class="baskets-body">
       <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+
       <div class="baskets-container">
         <div class="baskets-header">
           <h1>Your Gift Baskets</h1>
@@ -20,9 +22,9 @@
         </div>
 
         <% if (baskets.length===0) { %>
-          <p style="text-align: center; color: #754c24; font-size: 1.2em;">You haven't created any gift baskets yet.
-            Click
-            "Add a Basket" to get started!</p>
+          <p style="text-align: center; color: #754c24; font-size: 1.2em;">
+            You haven't created any gift baskets yet. Click "Add a Basket" to get started!
+          </p>
           <% } else { %>
             <ul>
               <% baskets.forEach((basket)=> { %>
@@ -34,10 +36,14 @@
                         <h3>
                           <%= basket.basketName %>
                         </h3>
-                        <p><strong>For:</strong>
-                          <%= basket.recipient %> | <strong>Occasion:</strong>
-                            <%= basket.occasion %> | <strong>Date:</strong>
-                              <%= new Date(basket.dateNeeded).toLocaleDateString() %>
+                        <p>
+                          <strong>For:</strong>
+                          <%= basket.recipient %> |
+                            <strong>Occasion:</strong>
+                            <%= basket.occasion %> |
+                              <strong>Date:</strong>
+                              <%= new Date(basket.dateNeeded.getTime() + basket.dateNeeded.getTimezoneOffset() *
+                                60000).toLocaleDateString() %>
                         </p>
                         <p><strong>Status:</strong>
                           <%= basket.status %>
@@ -59,6 +65,7 @@
             <% } %>
       </div>
     </div>
+
 </body>
 
 </html>

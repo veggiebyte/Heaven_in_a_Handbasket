@@ -13,9 +13,10 @@
 
         <div class="new-body">
             <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
-            <h1>Create a New Gift Basket</h1>
 
             <form action="/users/<%= user._id %>/baskets" method="POST">
+                <h1>Create a New Gift Basket</h1>
+
                 <label for="basketName">Basket Name:</label>
                 <input type="text" name="basketName" id="basketName" required />
 
@@ -61,7 +62,6 @@
                 <p style="font-size: 0.85em; color: #754c24; margin: 0 0 5px 0;">Enter one item per line</p>
                 <textarea name="items" id="items" rows="8"></textarea>
 
-
                 <label for="budget">Budget:</label>
                 <input type="text" name="budget" id="budget" placeholder="e.g., $50" />
 
@@ -75,8 +75,8 @@
                 </select>
 
                 <label for="photo">Inspiration Photo (optional):</label>
-                <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design
-                </p>
+                <p style="font-size: 0.85em; color: #754c24; margin: 0 0 5px 0;">Choose a photo to inspire your basket
+                    design</p>
                 <select id="photo" name="photo">
                     <option value="">-- No Photo --</option>
                     <option value="/images/basket_inspo/bear_basket.jpg">Teddy Bear Gift Basket</option>
@@ -92,13 +92,12 @@
                     <option value="/images/basket_inspo/wine_basket.jpg">Wine Basket</option>
                     <option value="/images/basket_inspo/wine_present_basket.jpg">Wine Present Basket</option>
                     <option value="/images/basket_inspo/wine_present_basket2.jpg">Wine Present Basket 2</option>
-                    <option value="/images/basket_inspo/wine_xmas_inspo.jpg">Wine Christmas Basket</option>
+                    <option value="/images/basket_inspo/wine_xmas_basket.jpg">Wine Christmas Basket</option>
                     <option value="/images/basket_inspo/wine_xmas_basket.jpg">Wine Holiday Basket</option>
                     <option value="/images/basket_inspo/xmas_basket.jpg">Christmas Basket</option>
                     <option value="/images/basket_inspo/xmas_cat_basket.jpg">Christmas Cat Basket</option>
                     <option value="/images/basket_inspo/yellow_kitchen_basket.jpg">Yellow Kitchen Basket</option>
                 </select>
-
 
                 <div class="form-buttons">
                     <button type="submit">Create Basket</button>

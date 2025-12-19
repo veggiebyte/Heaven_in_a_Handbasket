@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rum+Raisin&family=Quicksand:wght@400;600;700&display=swap');
 
-/* BASE STYLES - Apply to all pages */
+/* BASE STYLES */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5dc;
@@ -20,14 +20,14 @@ h2 {
 .welcome-message {
   font-family: 'Quicksand', sans-serif;
   font-size: 2.2em;
-  color: #42b19f;
+  color: #cb1061;
   text-align: center;
   margin: 20px 0 10px 0;
   letter-spacing: 0.02em;
   font-weight: 700;
 }
 
-/* LANDING PAGE ONLY - Photo + Text Layout */
+/* LANDING PAGE */
 .landing-content {
   display: flex;
   gap: 40px;
@@ -41,7 +41,7 @@ h2 {
   max-width: 45%;
   height: auto;
   border-radius: 15px;
-  border: 3px solid #42b19f;
+  border: 3px solid #cb1061;
 }
 
 .landing-text {
@@ -52,7 +52,7 @@ h2 {
   font-family: 'Quicksand', sans-serif;
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #42b19f;
+  color: #cb1061;
   font-weight: 700;
 }
 
@@ -68,11 +68,11 @@ h2 {
 }
 
 .signin-prompt a {
-  color: #f7931e;
+  color: #cb1061;
   text-decoration: underline;
 }
 
-/* FORMS - Used on sign in, sign up, new, edit pages */
+/* FORMS */
 form {
   display: flex;
   flex-direction: column;
@@ -82,8 +82,14 @@ form {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
-  border: 3px solid #42b19f;
+  border: 3px solid #cb1061;
   margin: 0 auto;
+}
+
+form h1 {
+  text-align: center;
+  color: #754c24;
+  margin: 0 0 20px 0;
 }
 
 form label {
@@ -97,13 +103,12 @@ form label:first-of-type {
 input,
 textarea,
 select {
-  border: 2px solid #42b19f;
+  border: 2px solid #cb1061;
   padding: 10px;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Form button containers - for Create/Cancel, Update/Cancel pairs */
 .form-buttons {
   display: flex;
   gap: 15px;
@@ -119,13 +124,13 @@ select {
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  background-color: #f7931e;
+  background-color: #cb1061;
   color: white;
   border: none;
 }
 
 .form-buttons button:hover {
-  background-color: #e9661e;
+  background-color: #a30d4f;
 }
 
 .form-buttons .cancel-btn {
@@ -136,17 +141,59 @@ select {
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  background-color: #42b19f;
+  background-color: #42733f;
   color: white;
   border: none;
   display: block;
 }
 
 .form-buttons .cancel-btn:hover {
-  background-color: #3a9d8c;
+  background-color: #355f33;
 }
 
-/* BASKETS LIST PAGE */
+/* FORM PAGES LAYOUT */
+.new-body,
+.edit-body,
+.signin-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px 20px;
+}
+
+.new-body h1,
+.edit-body h1 {
+  text-align: center;
+  color: #754c24;
+  margin: 10px 0 30px 0;
+  font-size: 2.5em;
+}
+
+/* AUTH BUTTONS */
+.signin-container button,
+.signup-container button {
+  padding: 12px;
+  background-color: #cb1061;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  display: block;
+}
+
+.signin-container button:hover,
+.signup-container button:hover {
+  background-color: #a30d4f;
+}
+
+/* BASKETS LIST */
 .baskets-body {
   padding: 20px;
 }
@@ -160,9 +207,14 @@ select {
   margin: 0 auto;
 }
 
-.add-basket-link {
+.baskets-header h1 {
+  color: #754c24;
+  font-size: 2.5em;
+}
+
+.add-basket-link,
+.shopping-list-link {
   padding: 12px 25px;
-  background-color: #f7931e;
   color: white;
   border-radius: 30px;
   text-decoration: none;
@@ -170,13 +222,20 @@ select {
   font-size: 1.4em;
 }
 
-.add-basket-link:hover {
-  background-color: #e9661e;
+.add-basket-link {
+  background-color: #cb1061;
 }
 
-.baskets-header h1 {
-  color: #754c24;
-  font-size: 2.5em;
+.add-basket-link:hover {
+  background-color: #a30d4f;
+}
+
+.shopping-list-link {
+  background-color: #42733f;
+}
+
+.shopping-list-link:hover {
+  background-color: #cb1061;
 }
 
 .baskets-container {
@@ -184,17 +243,16 @@ select {
   margin: 20px auto;
   padding: 30px;
   background-color: white;
-  border: 3px solid #f7931e;
+  border: 3px solid #cb1061;
   border-radius: 20px;
 }
 
-/* Basket list items with details and actions */
 .basket-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #f5f5dc;
-  border: 2px solid #42b19f;
+  border: 2px solid #cb1061;
   border-radius: 15px;
   padding: 20px;
   margin: 15px 0;
@@ -214,6 +272,16 @@ select {
 .basket-info p {
   margin: 5px 0;
   color: #754c24;
+}
+
+.basket-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #cb1061;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .basket-actions {
@@ -245,100 +313,33 @@ select {
 }
 
 .view-btn {
-  background-color: #42b19f;
+  background-color: #42733f;
   color: white;
 }
 
 .view-btn:hover {
-  background-color: #e9661e;
+  background-color: #cb1061;
 }
 
 .edit-btn {
-  background-color: #f7931e;
+  background-color: #cb1061;
   color: white;
 }
 
 .edit-btn:hover {
-  background-color: #e9661e;
+  background-color: #a30d4f;
 }
 
 .delete-btn {
   background-color: #754c24;
   color: white;
-  font-family: 'Poppins', sans-serif;
 }
 
 .delete-btn:hover {
-  background-color: #e9661e;
+  background-color: #cb1061;
 }
 
-ul {
-  list-style: none;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-ul>a {
-  display: block;
-  text-decoration: none;
-  color: #754c24;
-  background-color: white;
-  border: 2px solid #42b19f;
-  border-radius: 15px;
-  padding: 15px 20px;
-  margin: 10px 0;
-  font-weight: 600;
-}
-
-ul>a:hover {
-  background-color: #42b19f;
-  color: white;
-}
-
-/* FORM PAGES (new, edit, sign in, sign up) */
-.new-body,
-.edit-body,
-.signin-container,
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
-  padding: 40px 20px;
-}
-
-.new-body h1,
-.edit-body h1 {
-  text-align: center;
-  color: #e9661e;
-  margin: 10px 0 30px 0;
-  font-size: 2.5em;
-}
-
-/* SMALL SCREENS - Stack photo and text vertically */
-@media (max-width: 768px) {
-  .landing-content {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .landing-photo {
-    max-width: 60%;
-    margin: 0 auto 20px;
-  }
-
-  .landing-text h2 {
-    font-size: 1.8em;
-  }
-
-  .landing-text p {
-    font-size: 1.1em;
-  }
-}
-
-/* SHOW/VIEW PAGE */
+/* SHOW PAGE */
 .show-page {
   padding: 20px;
   min-height: 80vh;
@@ -350,7 +351,11 @@ ul>a:hover {
   background-color: white;
   padding: 40px;
   border-radius: 20px;
-  border: 3px solid #42b19f;
+  border: 3px solid #cb1061;
+}
+
+.show-container h1 {
+  text-align: center;
 }
 
 .show-header {
@@ -390,7 +395,7 @@ ul>a:hover {
 
 .basket-status {
   font-size: 1.2em;
-  color: #f7931e;
+  color: #cb1061;
   font-weight: 600;
   margin-bottom: 30px;
 }
@@ -411,7 +416,7 @@ ul>a:hover {
 }
 
 .detail-item strong {
-  color: #42b19f;
+  color: #cb1061;
 }
 
 .basket-section {
@@ -422,7 +427,7 @@ ul>a:hover {
 }
 
 .basket-section h3 {
-  color: #42b19f;
+  color: #cb1061;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -438,47 +443,9 @@ ul>a:hover {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 2px solid #42b19f;
+  border: 2px solid #cb1061;
   display: block;
   margin: 10px auto;
-}
-
-.basket-thumbnail {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid #f7931e;
-  flex-shrink: 0;
-  margin-right: 20px;
-}
-
-.back-link {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.back-link a {
-  color: #42b19f;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1em;
-}
-
-.back-link a:hover {
-  color: #e9661e;
-}
-
-/* Mobile adjustments for show page */
-@media (max-width: 768px) {
-  .basket-details {
-    grid-template-columns: 1fr;
-  }
-
-  .show-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 .shopping-list {
@@ -493,27 +460,23 @@ ul>a:hover {
   margin-bottom: 8px;
 }
 
-.signin-container button,
-.signup-container button {
-  padding: 12px;
-  background-color: #f7931e;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  font-size: 1.1em;
+.back-link {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-link a {
+  color: #cb1061;
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
-  width: 50%;
-  margin: 20px auto 0 auto;
-  display: block;
+  font-size: 1.1em;
 }
 
-.signin-container button:hover,
-.signup-container button:hover {
-  background-color: #e9661e;
+.back-link a:hover {
+  color: #a30d4f;
 }
 
-/* Shopping List Page */
+/* SHOPPING LIST PAGE */
 .shopping-list-master {
   list-style: none;
   padding: 0;
@@ -525,7 +488,7 @@ ul>a:hover {
   padding: 15px 20px;
   margin: 10px 0;
   border-radius: 10px;
-  border-left: 4px solid #f7931e;
+  border-left: 4px solid #cb1061;
   color: #754c24;
   line-height: 1.6;
 }
@@ -538,40 +501,50 @@ ul>a:hover {
 .item-info {
   display: block;
   font-size: 0.9em;
-  color: #42b19f;
+  color: #cb1061;
   margin-top: 5px;
 }
 
-.shopping-list-link {
-  padding: 12px 25px;
-  background-color: #42b19f;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.4em;
-}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .landing-content {
+    flex-direction: column;
+    padding: 20px;
+  }
 
-.shopping-list-link:hover {
-  background-color: #e9661e;
-}
+  .landing-photo {
+    max-width: 60%;
+    margin: 0 auto 20px;
+  }
 
-.show-container h1 {
-  text-align: center;
-}
+  .landing-text h2 {
+    font-size: 1.8em;
+  }
 
-@media (max-width: 768px) and (min-width: 400px) {
+  .landing-text p {
+    font-size: 1.1em;
+  }
+
+  .basket-details {
+    grid-template-columns: 1fr;
+  }
+
+  .show-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .baskets-header {
     flex-direction: column;
     align-items: center;
     gap: 15px;
   }
-  
+
   .baskets-header h1 {
     font-size: 2em;
     text-align: center;
   }
-  
+
   .add-basket-link,
   .shopping-list-link {
     font-size: 1.1em;

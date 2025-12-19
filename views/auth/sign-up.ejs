@@ -5,29 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
-
   <title>Sign Up</title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-    <div class="signup-container">
+  <div class="signup-container">
+    <form action="/auth/sign-up" method="POST">
       <h1>Create a new account!</h1>
-      <form action="/auth/sign-up" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" />
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" />
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" name="confirmPassword" id="confirmPassword" />
-        <button type="submit">Sign Up</button>
-        <p style="text-align: center; margin-top: 15px; font-size: 0.95em;">
-          Already have an account? <a href="/auth/sign-in" style="color: #f7931e; text-decoration: underline;">Sign in
-            here</a>
-        </p>
-      </form>
-    </div>
+      
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
+      
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
+      
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" name="confirmPassword" id="confirmPassword" required />
+      
+      <button type="submit">Sign Up</button>
+      
+      <p style="text-align: center; margin-top: 15px; font-size: 0.95em;">
+        Already have an account? <a href="/auth/sign-in" style="color: #cb1061; text-decoration: underline;">Sign in here</a>
+      </p>
+    </form>
+  </div>
+
 </body>
 
 </html>

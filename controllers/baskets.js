@@ -12,7 +12,7 @@ router.get('/new', async (req, res) => {
 router.get('/shopping-list', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    
+
     // Collect all items from all baskets
     const allItems = [];
     currentUser.baskets.forEach(basket => {
@@ -27,7 +27,7 @@ router.get('/shopping-list', async (req, res) => {
         });
       }
     });
-    
+
     res.render('baskets/shopping-list.ejs', {
       allItems: allItems,
     });
@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     res.render('baskets/index.ejs', {
-      baskets: currentUser.baskets,  
+      baskets: currentUser.baskets,
     });
   } catch (error) {
     console.log(error);
@@ -68,8 +68,8 @@ router.get('/:basketId/edit', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     const basket = currentUser.baskets.id(req.params.basketId);
-    res.render('baskets/edit.ejs', {  
-      basket: basket,  
+    res.render('baskets/edit.ejs', {
+      basket: basket,
     });
   } catch (error) {
     console.log(error);
@@ -78,10 +78,10 @@ router.get('/:basketId/edit', async (req, res) => {
 });
 
 // 6. PARAMETERIZED routes last
-router.put('/:basketId', async (req, res) => {  
+router.put('/:basketId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    const basket = currentUser.baskets.id(req.params.basketId);  
+    const basket = currentUser.baskets.id(req.params.basketId);
     basket.set(req.body);
     await currentUser.save();
     res.redirect(
@@ -96,9 +96,9 @@ router.put('/:basketId', async (req, res) => {
 router.get('/:basketId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    const basket = currentUser.baskets.id(req.params.basketId); 
-    res.render('baskets/show.ejs', { 
-      basket: basket, 
+    const basket = currentUser.baskets.id(req.params.basketId);
+    res.render('baskets/show.ejs', {
+      basket: basket,
     });
   } catch (error) {
     console.log(error);
