@@ -179,12 +179,21 @@ select {
   font-size: 2.5em;
 }
 
+.baskets-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: white;
+  border: 3px solid #f7931e;
+  border-radius: 20px;
+}
+
 /* Basket list items with details and actions */
 .basket-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #f5f5dc;
   border: 2px solid #42b19f;
   border-radius: 15px;
   padding: 20px;
@@ -545,4 +554,8 @@ ul>a:hover {
 
 .shopping-list-link:hover {
   background-color: #e9661e;
+}
+
+.show-container h1 {
+  text-align: center;
 }

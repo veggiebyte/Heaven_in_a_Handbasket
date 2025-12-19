@@ -12,48 +12,51 @@
   <%- include('../partials/_navbar.ejs') %>
     <div class="baskets-body">
       <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
-      <div class="baskets-header">
-        <h1>Your Gift Baskets</h1>
-        <a class="add-basket-link" href="/users/<%=user._id%>/baskets/new">+ Add a Basket</a>
-        <a class="shopping-list-link" href="/users/<%=user._id%>/baskets/shopping-list">📋 Shopping List</a>
-      </div>
+      <div class="baskets-container">
+        <div class="baskets-header">
+          <h1>Your Gift Baskets</h1>
+          <a class="add-basket-link" href="/users/<%=user._id%>/baskets/new">+ Add a Basket</a>
+          <a class="shopping-list-link" href="/users/<%=user._id%>/baskets/shopping-list">📋 Shopping List</a>
+        </div>
 
-      <% if (baskets.length===0) { %>
-        <p style="text-align: center; color: #754c24; font-size: 1.2em;">You haven't created any gift baskets yet. Click
-          "Add a Basket" to get started!</p>
-        <% } else { %>
-          <ul>
-            <% baskets.forEach((basket)=> { %>
-              <li class="basket-item">
-                <% if (basket.photo) { %>
-                  <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" class="basket-thumbnail">
-                  <% } %>
-                    <div class="basket-info">
-                      <h3>
-                        <%= basket.basketName %>
-                      </h3>
-                      <p><strong>For:</strong>
-                        <%= basket.recipient %> | <strong>Occasion:</strong>
-                          <%= basket.occasion %> | <strong>Date:</strong>
-                            <%= new Date(basket.dateNeeded).toLocaleDateString() %>
-                      </p>
-                      <p><strong>Status:</strong>
-                        <%= basket.status %>
-                      </p>
-                    </div>
-                    <div class="basket-actions">
-                      <a href="/users/<%= user._id %>/baskets/<%= basket._id %>" class="action-btn view-btn">View</a>
-                      <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit"
-                        class="action-btn edit-btn">Edit</a>
-                      <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE" method="POST"
-                        style="display: inline;">
-                        <button type="submit" class="action-btn delete-btn">Delete</button>
-                      </form>
-                    </div>
-              </li>
-              <% }) %>
-          </ul>
-          <% } %>
+        <% if (baskets.length===0) { %>
+          <p style="text-align: center; color: #754c24; font-size: 1.2em;">You haven't created any gift baskets yet.
+            Click
+            "Add a Basket" to get started!</p>
+          <% } else { %>
+            <ul>
+              <% baskets.forEach((basket)=> { %>
+                <li class="basket-item">
+                  <% if (basket.photo) { %>
+                    <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" class="basket-thumbnail">
+                    <% } %>
+                      <div class="basket-info">
+                        <h3>
+                          <%= basket.basketName %>
+                        </h3>
+                        <p><strong>For:</strong>
+                          <%= basket.recipient %> | <strong>Occasion:</strong>
+                            <%= basket.occasion %> | <strong>Date:</strong>
+                              <%= new Date(basket.dateNeeded).toLocaleDateString() %>
+                        </p>
+                        <p><strong>Status:</strong>
+                          <%= basket.status %>
+                        </p>
+                      </div>
+                      <div class="basket-actions">
+                        <a href="/users/<%= user._id %>/baskets/<%= basket._id %>" class="action-btn view-btn">View</a>
+                        <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit"
+                          class="action-btn edit-btn">Edit</a>
+                        <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE" method="POST"
+                          style="display: inline;">
+                          <button type="submit" class="action-btn delete-btn">Delete</button>
+                        </form>
+                      </div>
+                </li>
+                <% }) %>
+            </ul>
+            <% } %>
+      </div>
     </div>
 </body>
 
