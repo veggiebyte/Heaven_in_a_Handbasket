@@ -115,7 +115,9 @@
 - Inspiration photos sourced from royalty-free stock sites (Depositphotos.com)
 - Shopping List aggregation logic adapted from JavaScript array methods
 - Embedded subdocument schema pattern from MongoDB documentation
-- Built as Project 2 for General Assembly's Software Engineering Immersive
+- W3 schools
+- MDN
+- Dev.to website (https://dev.to/)
 - MEN Stack architecture adapted from GA curriculum
 
 ---
