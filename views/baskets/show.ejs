@@ -5,93 +5,110 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title><%= basket.basketName %></title>
+  <title>
+    <%= basket.basketName %>
+  </title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-  <div class="show-page">
-    <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+    <div class="show-page">
+      <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
 
-    <div class="show-container">
-      <div class="show-header">
-        <h1><%= basket.basketName %></h1>
-        <div class="show-actions">
-          <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit" class="action-btn edit-btn">Edit Basket</a>
-          <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE" method="POST" style="display: inline;">
-            <button type="submit" class="action-btn delete-btn">Delete Basket</button>
-          </form>
+      <div class="show-container">
+        <div class="show-header">
+          <h1>
+            <%= basket.basketName %>
+          </h1>
+          <div class="show-actions">
+            <a href="/users/<%= user._id %>/baskets/<%= basket._id %>/edit" class="action-btn edit-btn">Edit Basket</a>
+            <form action="/users/<%= user._id %>/baskets/<%= basket._id %>?_method=DELETE" method="POST"
+              style="display: inline;"
+              onsubmit="return confirm('Are you sure you want to delete <%= basket.basketName %>? This action cannot be undone.');">
+              <button type="submit" class="action-btn delete-btn">Delete Basket</button>
+            </form>
+          </div>
         </div>
-      </div>
 
-      <p class="basket-status"><strong>Status:</strong> <%= basket.status %></p>
+        <p class="basket-status"><strong>Status:</strong>
+          <%= basket.status %>
+        </p>
 
-      <div class="basket-details">
-        <div class="detail-item">
-          <strong>Recipient:</strong> <%= basket.recipient %>
-        </div>
-        
-        <% if (basket.recipientAge) { %>
-        <div class="detail-item">
-          <strong>Age:</strong> <%= basket.recipientAge %>
-        </div>
-        <% } %>
-        
-        <div class="detail-item">
-          <strong>Occasion:</strong> <%= basket.occasion %>
-        </div>
-        
-        <% if (basket.theme) { %>
-        <div class="detail-item">
-          <strong>Theme:</strong> <%= basket.theme %>
-        </div>
-        <% } %>
-        
-        <div class="detail-item">
-          <strong>Date Needed:</strong> <%= new Date(basket.dateNeeded).toLocaleDateString() %>
-        </div>
-        
-        <% if (basket.budget) { %>
-        <div class="detail-item">
-          <strong>Budget:</strong> <%= basket.budget %>
-        </div>
-        <% } %>
-      </div>
+        <div class="basket-details">
+          <div class="detail-item">
+            <strong>Recipient:</strong>
+            <%= basket.recipient %>
+          </div>
 
-      <% if (basket.items) { %>
-      <div class="basket-section">
-        <h3>Items / Shopping List:</h3>
-        <ul class="shopping-list">
-          <% 
-            const itemList = basket.items.split(/[•\n]/).map(item => item.trim()).filter(item => item.length > 0);
-            itemList.forEach(item => { 
-          %>
-            <li><%= item %></li>
-          <% }); %>
-        </ul>
-      </div>
-      <% } %>
+          <% if (basket.recipientAge) { %>
+            <div class="detail-item">
+              <strong>Age:</strong>
+              <%= basket.recipientAge %>
+            </div>
+            <% } %>
 
-      <% if (basket.notes) { %>
-      <div class="basket-section">
-        <h3>Notes:</h3>
-        <p><%= basket.notes %></p>
-      </div>
-      <% } %>
+              <div class="detail-item">
+                <strong>Occasion:</strong>
+                <%= basket.occasion %>
+              </div>
 
-      <% if (basket.photo) { %>
-      <div class="basket-section">
-        <h3>Photo:</h3>
-        <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" class="basket-photo" />
-      </div>
-      <% } %>
+              <% if (basket.theme) { %>
+                <div class="detail-item">
+                  <strong>Theme:</strong>
+                  <%= basket.theme %>
+                </div>
+                <% } %>
 
-      <div class="back-link">
-        <a href="/users/<%= user._id %>/baskets">← Back to Your Baskets</a>
+                  <div class="detail-item">
+                    <strong>Date Needed:</strong>
+                    <%= new Date(basket.dateNeeded).toLocaleDateString() %>
+                  </div>
+
+                  <% if (basket.budget) { %>
+                    <div class="detail-item">
+                      <strong>Budget:</strong>
+                      <%= basket.budget %>
+                    </div>
+                    <% } %>
+        </div>
+
+        <% if (basket.items) { %>
+          <div class="basket-section">
+            <h3>Items / Shopping List:</h3>
+            <ul class="shopping-list">
+              <% const itemList=basket.items.split(/[•\n]/).map(item=> item.trim()).filter(item => item.length > 0);
+                itemList.forEach(item => {
+                %>
+                <li>
+                  <%= item %>
+                </li>
+                <% }); %>
+            </ul>
+          </div>
+          <% } %>
+
+            <% if (basket.notes) { %>
+              <div class="basket-section">
+                <h3>Notes:</h3>
+                <p>
+                  <%= basket.notes %>
+                </p>
+              </div>
+              <% } %>
+
+                <% if (basket.photo) { %>
+                  <div class="basket-section">
+                    <h3>Photo:</h3>
+                    <img src="<%= basket.photo %>" alt="<%= basket.basketName %>" class="basket-photo" />
+                  </div>
+                  <% } %>
+
+                    <div class="back-link">
+                      <a href="/users/<%= user._id %>/baskets">← Back to Your Baskets</a>
+                    </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>
