@@ -8,7 +8,36 @@ router.get('/new', async (req, res) => {
   res.render('baskets/new.ejs');
 });
 
-// 2. Index route (/)
+// 2. Shopping List - BEFORE index so it doesn't conflict
+router.get('/shopping-list', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    
+    // Collect all items from all baskets
+    const allItems = [];
+    currentUser.baskets.forEach(basket => {
+      if (basket.items) {
+        const itemList = basket.items.split(/[•\n]/).map(item => item.trim()).filter(item => item.length > 0);
+        itemList.forEach(item => {
+          allItems.push({
+            item: item,
+            basketName: basket.basketName,
+            recipient: basket.recipient
+          });
+        });
+      }
+    });
+    
+    res.render('baskets/shopping-list.ejs', {
+      allItems: allItems,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+// 3. Index route (/)
 router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -21,7 +50,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 3. POST route
+// 4. POST route
 router.post('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -34,7 +63,21 @@ router.post('/', async (req, res) => {
   }
 });
 
-// 4. PARAMETERIZED routes last
+// 5. Edit route - specific before :basketId
+router.get('/:basketId/edit', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const basket = currentUser.baskets.id(req.params.basketId);
+    res.render('baskets/edit.ejs', {  
+      basket: basket,  
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+// 6. PARAMETERIZED routes last
 router.put('/:basketId', async (req, res) => {  
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -44,19 +87,6 @@ router.put('/:basketId', async (req, res) => {
     res.redirect(
       `/users/${currentUser._id}/baskets/${req.params.basketId}`
     );
-  } catch (error) {
-    console.log(error);
-    res.redirect('/');
-  }
-});
-
-router.get('/:basketId/edit', async (req, res) => {
-  try {
-    const currentUser = await User.findById(req.session.user._id);
-    const basket = currentUser.baskets.id(req.params.basketId);
-    res.render('baskets/edit.ejs', {  
-      basket: basket,  
-    });
   } catch (error) {
     console.log(error);
     res.redirect('/');

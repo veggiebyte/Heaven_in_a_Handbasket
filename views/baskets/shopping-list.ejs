@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Shopping List</title>
+</head>
+
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <div class="show-page">
+    <h2 class="welcome-message">Welcome, <%= user.username %>!</h2>
+
+    <div class="show-container">
+      <h1>Master Shopping List</h1>
+      <p style="text-align: center; color: #754c24; font-size: 1.1em; margin-bottom: 30px;">
+        All items from all your gift baskets in one place
+      </p>
+
+      <% if (allItems.length === 0) { %>
+        <p style="text-align: center; color: #754c24; font-size: 1.2em;">
+          You don't have any items in your baskets yet. Add items to your baskets to see them here!
+        </p>
+      <% } else { %>
+        <ul class="shopping-list-master">
+          <% allItems.forEach(item => { %>
+            <li>
+              <strong><%= item.item %></strong>
+              <span class="item-info">for <%= item.basketName %> (<%=item.recipient %>)</span>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+
+      <div class="back-link">
+        <a href="/users/<%= user._id %>/baskets">← Back to Your Baskets</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

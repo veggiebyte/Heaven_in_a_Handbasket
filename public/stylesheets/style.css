@@ -503,3 +503,32 @@ ul>a:hover {
 .signup-container button:hover {
   background-color: #e9661e;
 }
+
+/* Shopping List Page */
+.shopping-list-master {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.shopping-list-master li {
+  background-color: #f5f5dc;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border-left: 4px solid #f7931e;
+  color: #754c24;
+  line-height: 1.6;
+}
+
+.shopping-list-master strong {
+  color: #754c24;
+  font-size: 1.1em;
+}
+
+.item-info {
+  display: block;
+  font-size: 0.9em;
+  color: #42b19f;
+  margin-top: 5px;
+}
