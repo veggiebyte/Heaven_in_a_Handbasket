@@ -123,4 +123,3 @@
 
 **Copyright © 2025**
 
-*Made with 🥤 and determination*
