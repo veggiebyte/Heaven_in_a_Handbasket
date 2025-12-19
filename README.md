@@ -113,7 +113,9 @@
 ## :trophy: Acknowledgments
 
 - Custom logo and branding designed in Adobe Illustrator
-- Inspiration photos sourced from royalty-free stock sites (Depositphotos.com)
+- Inspiration photos sourced from royalty-free stock sites
+- Shopping List aggregation logic adapted from JavaScript array methods
+- Embedded subdocument schema pattern from MongoDB documentation
 - Built as Project 2 for General Assembly's Software Engineering Immersive
 - MEN Stack architecture adapted from GA curriculum
 
@@ -121,4 +123,4 @@
 
 **Copyright © 2025**
 
-*Made with ☕ and determination*
+*Made with 🥤 and determination*
