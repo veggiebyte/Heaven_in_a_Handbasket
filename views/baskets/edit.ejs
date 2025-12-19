@@ -71,6 +71,8 @@
       </select>
 
       <label for="photo">Inspiration Photo (optional):</label>
+      <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
+
       <select id="photo" name="photo">
         <option value="" <%= !basket.photo ? 'selected' : '' %>>-- No Photo --</option>
         <option value="/images/basket_inspo/bear_basket.jpg" <%= basket.photo === '/images/basket_inspo/bear_basket.jpg' ? 'selected' : '' %>>Teddy Bear Gift Basket</option>
@@ -92,7 +94,6 @@
         <option value="/images/basket_inspo/xmas_cat_basket.jpg" <%= basket.photo === '/images/basket_inspo/xmas_cat_basket.jpg' ? 'selected' : '' %>>Christmas Cat Basket</option>
         <option value="/images/basket_inspo/yellow_kitchen_basket.jpg" <%= basket.photo === '/images/basket_inspo/yellow_kitchen_basket.jpg' ? 'selected' : '' %>>Yellow Kitchen Basket</option>
       </select>
-      <p style="font-size: 0.85em; color: #754c24; margin: 0;">Choose a photo to inspire your basket design</p>
 
       <div class="form-buttons">
         <button type="submit">Update Basket</button>
