@@ -22,22 +22,22 @@
 
 <details open>
   <summary>Landing Page</summary>
-  <img src="SCREENSHOT_URL_HERE" width="700"/>
+  <img src="public/images/screenshots/landing_page.jpg" width="700"/>
 </details>
 
 <details open>
   <summary>Your Gift Baskets</summary>
-  <img src="SCREENSHOT_URL_HERE" width="700"/>
+  <img src="public/images/screenshots/gift_basket_list.jpg" width="700"/>
 </details>
 
 <details open>
   <summary>Basket Details</summary>
-  <img src="SCREENSHOT_URL_HERE" width="700"/>
+  <img src="public/images/screenshots/basket_details.jpg" width="700"/>
 </details>
 
 <details open>
   <summary>Master Shopping List</summary>
-  <img src="SCREENSHOT_URL_HERE" width="700"/>
+  <img src="public/images/screenshots/master_list.jpg" width="700"/>
 </details>
 
 ## :computer: Technologies Used
@@ -95,30 +95,30 @@
 <details open>
   <summary>Planning Resources</summary>
   
-  **Trello Board:** [Project Planning & User Stories](YOUR_TRELLO_LINK_HERE)
+  **Trello Board:** [Project Planning & User Stories](https://trello.com/b/4qgUZN1G/project-2-heaven-in-a-handbasket-a-gift-track)
   
   **Deployed App:** [Heaven in a Handbasket](https://heaven-in-a-handbasket-9dd625f0519b.herokuapp.com/)
 </details>
 
 ## :satellite: Future Enhancements
 
+- [ ] **Shopping API integration** - Connect to Amazon or major retailers so users can search and save product links directly to their basket items
 - [ ] **Checkboxes for purchased items** - Mark items as bought on the shopping list
 - [ ] **Filter by status** - View only completed or in-progress baskets
 - [ ] **Duplicate basket feature** - Clone baskets for similar occasions
 - [ ] **Price tracking** - Calculate total cost as items are purchased
 - [ ] **Archive feature** - Move old baskets to archive without deleting
 - [ ] **Real file upload** - Upload custom photos instead of selecting from library
-- [ ] ~~**Gift basket suggestions powered by AI**~~ 🎁
 
 ## :trophy: Acknowledgments
 
 - Custom logo and branding designed in Adobe Illustrator
-- Inspiration photos sourced from royalty-free stock sites
+- Inspiration photos sourced from royalty-free stock sites (Depositphotos.com)
 - Built as Project 2 for General Assembly's Software Engineering Immersive
 - MEN Stack architecture adapted from GA curriculum
 
 ---
 
-**Copyright © 2024**
+**Copyright © 2025**
 
 *Made with ☕ and determination*
