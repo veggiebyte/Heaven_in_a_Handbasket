@@ -41,7 +41,7 @@ h2 {
   max-width: 45%;
   height: auto;
   border-radius: 15px;
-  border: 3px solid #cb1061;
+  border: 3px solid #42733f;
 }
 
 .landing-text {
@@ -68,8 +68,12 @@ h2 {
 }
 
 .signin-prompt a {
-  color: #cb1061;
+  color: #42733f;
   text-decoration: underline;
+}
+
+.signin-prompt a:hover {
+  color: #cb1061;
 }
 
 /* FORMS */
@@ -82,7 +86,7 @@ form {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
-  border: 3px solid #cb1061;
+  border: 4px solid #42733f;
   margin: 0 auto;
 }
 
@@ -94,6 +98,8 @@ form h1 {
 
 form label {
   margin-top: 15px;
+  color: #754c24;
+  font-weight: 600;
 }
 
 form label:first-of-type {
@@ -103,10 +109,18 @@ form label:first-of-type {
 input,
 textarea,
 select {
-  border: 2px solid #cb1061;
+  border: 2px solid #42733f;
   padding: 10px;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #cb1061;
+  box-shadow: 0 0 0 3px rgba(66, 115, 63, 0.1);
 }
 
 .form-buttons {
@@ -130,7 +144,7 @@ select {
 }
 
 .form-buttons button:hover {
-  background-color: #a30d4f;
+  background-color: #42733f;
 }
 
 .form-buttons .cancel-btn {
@@ -148,7 +162,7 @@ select {
 }
 
 .form-buttons .cancel-btn:hover {
-  background-color: #355f33;
+  background-color: #2d5429;
 }
 
 /* FORM PAGES LAYOUT */
@@ -190,7 +204,7 @@ select {
 
 .signin-container button:hover,
 .signup-container button:hover {
-  background-color: #a30d4f;
+  background-color: #42733f;
 }
 
 /* BASKETS LIST */
@@ -227,7 +241,7 @@ select {
 }
 
 .add-basket-link:hover {
-  background-color: #a30d4f;
+  background-color: #42733f;
 }
 
 .shopping-list-link {
@@ -235,7 +249,7 @@ select {
 }
 
 .shopping-list-link:hover {
-  background-color: #cb1061;
+  background-color: #2d5429;
 }
 
 .baskets-container {
@@ -243,7 +257,7 @@ select {
   margin: 20px auto;
   padding: 30px;
   background-color: white;
-  border: 3px solid #cb1061;
+  border: 4px solid #42733f;
   border-radius: 20px;
 }
 
@@ -274,12 +288,16 @@ select {
   color: #754c24;
 }
 
+.basket-info strong {
+  color: #42733f;
+}
+
 .basket-thumbnail {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid #cb1061;
+  border: 2px solid #42733f;
   flex-shrink: 0;
   margin-right: 20px;
 }
@@ -318,7 +336,7 @@ select {
 }
 
 .view-btn:hover {
-  background-color: #cb1061;
+  background-color: #2d5429;
 }
 
 .edit-btn {
@@ -327,7 +345,7 @@ select {
 }
 
 .edit-btn:hover {
-  background-color: #a30d4f;
+  background-color: #42733f;
 }
 
 .delete-btn {
@@ -336,7 +354,7 @@ select {
 }
 
 .delete-btn:hover {
-  background-color: #cb1061;
+  background-color: #42733f;
 }
 
 /* SHOW PAGE */
@@ -351,7 +369,7 @@ select {
   background-color: white;
   padding: 40px;
   border-radius: 20px;
-  border: 3px solid #cb1061;
+  border: 4px solid #42733f;
 }
 
 .show-container h1 {
@@ -395,7 +413,7 @@ select {
 
 .basket-status {
   font-size: 1.2em;
-  color: #cb1061;
+  color: #42733f;
   font-weight: 600;
   margin-bottom: 30px;
 }
@@ -408,6 +426,7 @@ select {
   padding: 20px;
   background-color: #f5f5dc;
   border-radius: 15px;
+  border-left: 4px solid #cb1061;
 }
 
 .detail-item {
@@ -416,7 +435,7 @@ select {
 }
 
 .detail-item strong {
-  color: #cb1061;
+  color: #42733f;
 }
 
 .basket-section {
@@ -424,10 +443,11 @@ select {
   padding: 20px;
   background-color: #f5f5dc;
   border-radius: 15px;
+  border-left: 4px solid #cb1061;
 }
 
 .basket-section h3 {
-  color: #cb1061;
+  color: #42733f;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -460,20 +480,24 @@ select {
   margin-bottom: 8px;
 }
 
+.shopping-list li::marker {
+  color: #42733f;
+}
+
 .back-link {
   margin-top: 30px;
   text-align: center;
 }
 
 .back-link a {
-  color: #cb1061;
+  color: #42733f;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1em;
 }
 
 .back-link a:hover {
-  color: #a30d4f;
+  color: #cb1061;
 }
 
 /* SHOPPING LIST PAGE */
@@ -494,14 +518,14 @@ select {
 }
 
 .shopping-list-master strong {
-  color: #754c24;
+  color: #42733f;
   font-size: 1.1em;
 }
 
 .item-info {
   display: block;
   font-size: 0.9em;
-  color: #cb1061;
+  color: #42733f;
   margin-top: 5px;
 }
 
