@@ -144,7 +144,7 @@ select:focus {
 }
 
 .form-buttons button:hover {
-  background-color: #42733f;
+  background-color: #8cc63f;
 }
 
 .form-buttons .cancel-btn {
@@ -162,7 +162,7 @@ select:focus {
 }
 
 .form-buttons .cancel-btn:hover {
-  background-color: #2d5429;
+  background-color: #8cc63f;
 }
 
 /* FORM PAGES LAYOUT */
@@ -204,7 +204,7 @@ select:focus {
 
 .signin-container button:hover,
 .signup-container button:hover {
-  background-color: #42733f;
+  background-color: #8cc63f;
 }
 
 /* BASKETS LIST */
@@ -241,7 +241,7 @@ select:focus {
 }
 
 .add-basket-link:hover {
-  background-color: #42733f;
+  background-color: #8cc63f;
 }
 
 .shopping-list-link {
@@ -249,7 +249,7 @@ select:focus {
 }
 
 .shopping-list-link:hover {
-  background-color: #2d5429;
+  background-color: #8cc63f;
 }
 
 .baskets-container {
@@ -336,7 +336,7 @@ select:focus {
 }
 
 .view-btn:hover {
-  background-color: #2d5429;
+  background-color: #8cc63f;
 }
 
 .edit-btn {
@@ -345,7 +345,7 @@ select:focus {
 }
 
 .edit-btn:hover {
-  background-color: #42733f;
+  background-color: #8cc63f;
 }
 
 .delete-btn {
@@ -354,7 +354,7 @@ select:focus {
 }
 
 .delete-btn:hover {
-  background-color: #42733f;
+  background-color: #8cc63f;
 }
 
 /* SHOW PAGE */

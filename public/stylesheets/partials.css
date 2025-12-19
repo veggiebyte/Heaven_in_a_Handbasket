@@ -37,11 +37,11 @@
 }
 
 .nav-link:hover {
-  color: #cb1061;
+  color: #8cc63f;
 }
 
 .nav-link:hover .star {
-  color: #754c24;
+  color: #8cc63f;
 }
 
 .nav-link-primary {
@@ -49,7 +49,7 @@
 }
 
 .nav-link-primary:hover {
-  color: #cb1061;
+  color: #8cc63f;
 }
 
 /* LARGE SCREENS - Bigger header */
